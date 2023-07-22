@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find Maximum Number</title>
+</head>
+<body>
+  <h1>Find Maximum Number</h1>
+  <label for="numbersInput">Enter numbers (separated by commas):</label>
+  <input type="text" id="numbersInput">
+  <button onclick="findMaxAndDisplay()">Find Maximum</button>
+  <p id="result"></p>
+
+  <script>
+    function findMaxAndDisplay() {
+      const numbersInput = document.getElementById("numbersInput").value;
+      const numbersArray = numbersInput.split(",").map(Number);
+
+      // Check for empty or non-array input
+      if (!Array.isArray(numbersArray) || numbersArray.length === 0) {
+        document.getElementById("result").textContent = "Invalid input. Please enter valid numbers.";
+        return;
+      }
+
+      // Find the maximum number in the array
+      const maxNumber = Math.max(...numbersArray);
+
+      // Display the result
+      document.getElementById("result").textContent = "The maximum number is: " + maxNumber;
+    }
+  </script>
+</body>
+</html>
